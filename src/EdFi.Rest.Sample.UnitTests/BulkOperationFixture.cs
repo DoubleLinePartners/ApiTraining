@@ -212,5 +212,28 @@ namespace EdFi.Rest.Sample.UnitTests
             Assert.AreEqual(HttpStatusCode.OK, calendarDatesApi.GetCalendarDateByKey(450, new DateTime(2013, 08, 02), string.Empty).StatusCode);
             Assert.AreEqual(HttpStatusCode.OK, calendarDatesApi.GetCalendarDateByKey(450, new DateTime(2013, 08, 05), string.Empty).StatusCode);
         }
+
+        [TestMethod]
+        public void When_Committing_Student_Gradebook_Should_Throw_Errors()
+        {
+            var interchanges = new List<Interchange>
+                                       {
+                                           new Interchange
+                                               {
+                                                   InterchangeType = "studentgradebook",
+                                                   Xml =
+                                                       string.Format(
+                                                           File.ReadAllText(
+                                                               @"SampleXml\When_Committing_Student_Gradebook_Should_Throw_Errors.xml"))
+                                               }
+                                       };
+
+            interchanges.ForEach(x => x.Length = x.Xml.Length);
+
+            UploadInterchanges(interchanges);
+
+            // This is just an example. We won't bother with an assertion here. However, that makes this
+            // a test without actually testing anything.
+        }
     }
 }

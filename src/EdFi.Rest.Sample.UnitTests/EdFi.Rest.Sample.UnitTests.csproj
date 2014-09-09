@@ -81,6 +81,9 @@
     <Content Include="SampleXml\When_Committing_EducationOrgCalendar_Interchange_Should_Insert_All_Records.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="SampleXml\When_Committing_Student_Gradebook_Should_Throw_Errors.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
