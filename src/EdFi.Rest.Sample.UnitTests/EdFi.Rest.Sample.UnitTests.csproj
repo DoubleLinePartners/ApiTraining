@@ -58,6 +58,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="BaseFixture.cs" />
+    <Compile Include="BulkOperationFixture.cs" />
     <Compile Include="IdentityFixture.cs" />
     <Compile Include="SchoolCategoryTypeFixture.cs" />
     <Compile Include="GradeLevelDescriptorFixture.cs" />
@@ -74,6 +75,12 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="SampleXml\When_Committing_EducationOrgCalendar_Interchange_Should_Insert_All_Records.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
