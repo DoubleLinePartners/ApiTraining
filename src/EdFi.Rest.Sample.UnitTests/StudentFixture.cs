@@ -16,16 +16,24 @@ namespace EdFi.Rest.Sample.UnitTests
             var identityApi = new IdentitiesApi(GetClientWithoutSchoolYear());
             var postIdentityResponse = identityApi.PostIdentity(identity);
             var api = new StudentsApi(GetClientWithSchoolYear());
-            var postResponse = api.PostStudents(new Student
-                                                {
-                                                    studentUniqueId = postIdentityResponse.Data.uniqueId,
-                                                    firstName = identity.givenNames,
-                                                    lastSurname = identity.familyNames,
-                                                    birthDate = DateTime.Parse(identity.birthDate),
-                                                    sexType = identity.birthGender
-                                                });
+            var student = new Student
+                              {
+                                  studentUniqueId = postIdentityResponse.Data.uniqueId,
+                                  firstName = identity.givenNames,
+                                  lastSurname = identity.familyNames,
+                                  birthDate = DateTime.Parse(identity.birthDate),
+                                  sexType = identity.birthGender
+                              };
+
+            // Create
+            var postResponse = api.PostStudents(student);
 
             Assert.AreEqual(HttpStatusCode.Created, postResponse.StatusCode);
+
+            // Update
+            postResponse = api.PostStudents(student);
+
+            Assert.AreEqual(HttpStatusCode.Forbidden, postResponse.StatusCode);
 
             var getResponse = api.GetStudentByKey(postIdentityResponse.Data.uniqueId, string.Empty);
 
@@ -44,14 +52,17 @@ namespace EdFi.Rest.Sample.UnitTests
             var identityApi = new IdentitiesApi(GetClientWithoutSchoolYear());
             var postIdentityResponse = identityApi.PostIdentity(identity);
             var studentsApi = new StudentsApi(clientWithSchoolYear);
-            var postResponse = studentsApi.PostStudents(new Student
+            var student = new Student
             {
                 studentUniqueId = postIdentityResponse.Data.uniqueId,
                 firstName = identity.givenNames,
                 lastSurname = identity.familyNames,
                 birthDate = DateTime.Parse(identity.birthDate),
                 sexType = identity.birthGender
-            });
+            };
+
+            // Create
+            var postResponse = studentsApi.PostStudents(student);
 
             Assert.AreEqual(HttpStatusCode.Created, postResponse.StatusCode);
 
@@ -65,6 +76,11 @@ namespace EdFi.Rest.Sample.UnitTests
                                                                                schoolYearTypeReference = new SchoolYearTypeReference{ schoolYear = CurrentSchoolYear },
                                                                                entryGradeLevelDescriptor = GradeLevelDescriptor
                                                                            });
+
+            // Update
+            postResponse = studentsApi.PostStudents(student);
+
+            Assert.AreEqual(HttpStatusCode.OK, postResponse.StatusCode);
 
             var getResponse = studentsApi.GetStudentByKey(postIdentityResponse.Data.uniqueId, string.Empty);
 
