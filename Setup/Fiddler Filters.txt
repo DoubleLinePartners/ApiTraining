@@ -1,0 +1,3 @@
+Click Show Filters and select "Show only the following hosts".
+
+tn-rest-production.cloudapp.net;tn-rest-admin-production.cloudapp.net;

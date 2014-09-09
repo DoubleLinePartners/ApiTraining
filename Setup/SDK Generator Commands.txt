@@ -1,0 +1,3 @@
+java -jar sdk-generate.jar csharp --url https://tn-rest-production.cloudapp.net/metadata/resources/api-docs --baseDir D:\EdFi.Rest --apiPackage EdFi.Rest.Api --helperPackage EdFi.Rest.Sdk --modelPackage EdFi.Rest.Models
+java -jar sdk-generate.jar csharp --url https://tn-rest-production.cloudapp.net/metadata/descriptors/api-docs --baseDir D:\EdFi.Rest --apiPackage EdFi.Rest.Api --helperPackage EdFi.Rest.Sdk --modelPackage EdFi.Rest.Models
+java -jar sdk-generate.jar csharp --url https://tn-rest-production.cloudapp.net/metadata/types/api-docs --baseDir D:\EdFi.Rest --apiPackage EdFi.Rest.Api --helperPackage EdFi.Rest.Sdk --modelPackage EdFi.Rest.Models

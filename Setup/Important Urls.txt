@@ -1,0 +1,10 @@
+Administration Portal
+https://tn-rest-admin-production.cloudapp.net
+
+API
+https://tn-rest-production.cloudapp.net/
+
+Swagger
+https://tn-rest-apidocs-production.cloudapp.net/
+
+Make sure to accept the security certificate warnings on the first 2 before trying to load Swagger. Firefox is recommended.
