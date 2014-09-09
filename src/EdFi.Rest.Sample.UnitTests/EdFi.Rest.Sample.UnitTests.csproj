@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="BaseFixture.cs" />
     <Compile Include="BulkOperationFixture.cs" />
+    <Compile Include="StaffFixture.cs" />
     <Compile Include="IdentityFixture.cs" />
     <Compile Include="SchoolCategoryTypeFixture.cs" />
     <Compile Include="GradeLevelDescriptorFixture.cs" />
